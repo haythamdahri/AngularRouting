@@ -1,11 +1,28 @@
 <div class="row" *ngIf="server !== undefined; else noServerSelected">
   <h5>{{ server.name }}</h5>
   <p>Server status is {{ server.status }}</p>
+  <button (click)="editServer()" class="btn btn-primary">Edit server</button>
 </div>
 
 <ng-template #noServerSelected>
-  <div class="row" *ngIf="server !== undefined; else noServerSelected">
-    <h5>{{ server.name }}</h5>
-    <p>Server status is {{ server.status }}</p>
+  <div class="row">
+    <p>No server selected</p>
   </div>
 </ng-template>
+
+<hr/>
+
+<ul>
+  <li *ngIf="server.id > 1"  class="list-group-item">
+    <a [routerLink]="['/servers', server.id-1]">
+      Previous server
+    </a>
+  </li>
+  <li *ngIf="server.id < serversService.getServers().length" class="list-group-item">
+    <a (click)="onNextServer()" style="cursor: pointer">
+      Next server
+    </a> <!-- Get next server programmatically -->
+  </li>
+</ul>
+
+
