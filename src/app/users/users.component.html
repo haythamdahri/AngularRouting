@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <a
+        style="cursor: pointer"
+        class="list-group-item"
+        *ngFor="let user of users"
+        (click)="displayUserData(user)"
+        >
+        {{ user.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <app-user [myUser]="displayedUser"></app-user>
+  </div>
+</div>
+
+

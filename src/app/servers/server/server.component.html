@@ -1,0 +1,11 @@
+<div class="row" *ngIf="server !== undefined; else noServerSelected">
+  <h5>{{ server.name }}</h5>
+  <p>Server status is {{ server.status }}</p>
+</div>
+
+<ng-template #noServerSelected>
+  <div class="row" *ngIf="server !== undefined; else noServerSelected">
+    <h5>{{ server.name }}</h5>
+    <p>Server status is {{ server.status }}</p>
+  </div>
+</ng-template>

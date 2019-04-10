@@ -1,0 +1,15 @@
+<div *ngIf="user !== undefined; else noUserId">
+  <p>User with ID {{ user.id }}.</p>
+  <p>User name is {{ user.name }}</p>
+</div>
+
+<ng-template #noUserId>
+  <div>
+    <p>User with ID _ID_ loaded.</p>
+    <p>User name is _NAME_</p>
+  </div>
+</ng-template>
+
+<hr>
+
+<a [routerLink]="['/users', 10, 'Anna']">Load Anna</a> <!-- /users/10/Anna -->
