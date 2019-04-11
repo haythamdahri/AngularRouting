@@ -2,7 +2,6 @@
 <p>Manage your Servers and Users.</p>
 <button class="btn btn-primary" (click)="onServerLoad(1)">Load Server 1</button>
 
-
 <a class="btn btn-primary"
   [routerLink]="['servers', 2, 'edit']"
   [queryParams]="{allowEditing: true}"
@@ -10,3 +9,8 @@
 </a>
 
 
+<hr>
+
+
+<button class="btn btn-default" (click)="login()">Login</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="btn btn-default" (click)="logout()">Logout</button>

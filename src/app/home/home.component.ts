@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthService} from "../auth.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -19,4 +21,21 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['servers', id, 'edit'], {queryParams: {'allowEdit': true}, fragment: "Loading"})
   }
 
+  login() {
+    this.authService.login();
+    Swal.fire(
+      'Good job!',
+      'You are logged in!',
+      'success'
+    )
+  }
+
+  logout() {
+    this.authService.logout();
+    Swal.fire(
+      'Good job!',
+      'You are logged out!',
+      'success'
+    );
+  }
 }

@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-
+import {Component, OnInit} from '@angular/core';
 import { ServersService } from '../servers.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Server} from "./server-resolver.service";
 
 @Component({
   selector: 'app-server',
@@ -15,7 +15,7 @@ export class ServerComponent implements OnInit {
     private serversService: ServersService,
     private route: ActivatedRoute,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id']; // id is a string and we convert it to a number using + symbol
@@ -37,7 +37,7 @@ export class ServerComponent implements OnInit {
     // To preserve parameters sent from the parent component(Servers), we will add <<queryParamsHandling>> to handle this |
     // 'preserve' to keep params
     // 'merge' to override params
-    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve', preserveFragment: 'preserve'});
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve', preserveFragment: true});
   }
 
 }
